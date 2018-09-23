@@ -1,9 +1,5 @@
- ?..-->?
- hPPPPPPPPPPPPPPPPPPPPPPp
-        <!--??"&lt;!&ndash;"&ndash;&gt;-->
-,';[ppkm                  cxzi
-        ]/<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.    apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -24,21 +20,50 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
+        <dependency.version>LATEST</dependency.version>
+        <elasticsearch.version>6.2.2</elasticsearch.version>
     </properties>
 
     <dependencies>
-         <dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <!--elasticsearch 客户端-->
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>transport</artifactId>
+            <version>${elasticsearch.version}</version>
+        </dependency>
+        <!--ElasticSearch 5.x 根据官网配置maven 依赖, 由于 5.0x的 jar 内部使用的 apache log4日志。-->
+        <!--所以要配置额外的依赖支持 org.apache.logging.log4j。-->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.7.0</version>
         </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+        <!-- 上面两个jar的必须的，下面这个是第三方的UI界面的美化，不是必需的 -->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>swagger-bootstrap-ui</artifactId>
+            <version>1.6</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -49,6 +74,7 @@
             </plugin>
         </plugins>
     </build>
+
 
 
 </project>
