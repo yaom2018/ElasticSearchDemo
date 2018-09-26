@@ -21,7 +21,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <dependency.version>LATEST</dependency.version>
-        <elasticsearch.version>6.2.2</elasticsearch.version>
+        <elasticsearch.version>6.4.1</elasticsearch.version>
     </properties>
 
     <dependencies>
@@ -29,12 +29,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!--elasticsearch 客户端-->
-        <dependency>
-            <groupId>org.elasticsearch.client</groupId>
-            <artifactId>transport</artifactId>
-            <version>${elasticsearch.version}</version>
-        </dependency>
+
         <!--ElasticSearch 5.x 根据官网配置maven 依赖, 由于 5.0x的 jar 内部使用的 apache log4日志。-->
         <!--所以要配置额外的依赖支持 org.apache.logging.log4j。-->
         <dependency>
@@ -63,6 +58,38 @@
             <artifactId>swagger-bootstrap-ui</artifactId>
             <version>1.6</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/commons-configuration/commons-configuration -->
+        <dependency>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+            <version>1.10</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/commons-pool/commons-pool -->
+        <dependency>
+            <groupId>commons-pool</groupId>
+            <artifactId>commons-pool</artifactId>
+            <version>1.6</version>
+        </dependency>
+
+       <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>elasticsearch-rest-high-level-client</artifactId>
+            <version>6.4.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/log4j/log4j -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/commons-collections/commons-collections -->
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>3.2.1</version>
+        </dependency>
 
     </dependencies>
 
@@ -74,7 +101,5 @@
             </plugin>
         </plugins>
     </build>
-
-
 
 </project>
